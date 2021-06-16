@@ -1,9 +1,11 @@
-import { PageComponent } from "./components/page.js";
-var App = (function () {
-    function App(appRoot) {
+import { ImageComponent } from "./components/page/item/image.js";
+import { PageComponent } from "./components/page/page.js";
+class App {
+    constructor(appRoot) {
         this.page = new PageComponent();
         this.page.attachTo(appRoot);
+        const iamge = new ImageComponent('Image Title', 'https://picsum.photos/600/300');
+        iamge.attachTo(appRoot, 'beforeend');
     }
-    return App;
-}());
+}
 new App(document.querySelector('.document'));
